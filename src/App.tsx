@@ -12,20 +12,32 @@ function App() {
   const [showDisconnectMenu, setShowDisconnectMenu] = useState(false);
   const [showCreateWalletModal, setShowCreateWalletModal] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
-
-  const walletClient = useMemo(
-    () =>
-      createWalletClient({
-        chain: bscTestnet,
-        transport: custom(window.ethereum!),
-      }).extend(publicActions),
-    []
+  const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(
+    typeof window !== "undefined" && typeof window.ethereum !== "undefined"
   );
+
+  const walletClient = useMemo(() => {
+    if (typeof window === "undefined" || !window.ethereum) {
+      return null;
+    }
+    try {
+      return createWalletClient({
+        chain: bscTestnet,
+        transport: custom(window.ethereum),
+      }).extend(publicActions);
+    } catch {
+      return null;
+    }
+  }, []);
 
   const connectWallet = async () => {
     try {
       const ethereum = window.ethereum;
-      if (!ethereum) return;
+      if (!ethereum || !walletClient) {
+        setIsMetaMaskInstalled(false);
+        return;
+      }
+      setIsMetaMaskInstalled(true);
       const chainIdHex: string = await ethereum.request({
         method: "eth_chainId",
       });
@@ -64,7 +76,11 @@ function App() {
 
   useEffect(() => {
     const ethereum = window.ethereum;
-    if (!ethereum) return;
+    if (!ethereum) {
+      setIsMetaMaskInstalled(false);
+      return;
+    }
+    setIsMetaMaskInstalled(true);
     const checkConnection = async () => {
       try {
         const accounts: string[] = await ethereum.request({
@@ -190,7 +206,7 @@ function App() {
                   </>
                 )}
               </div>
-            ) : (
+            ) : isMetaMaskInstalled ? (
               <button
                 type="button"
                 onClick={connectWallet}
@@ -198,6 +214,28 @@ function App() {
               >
                 Connect Wallet
               </button>
+            ) : (
+              <a
+                href="https://metamask.io/download/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-sm hover:shadow-md hover:scale-105 transition-all"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+                Install MetaMask
+              </a>
             )}
           </div>
         </header>
@@ -205,6 +243,59 @@ function App() {
         {!address ? (
           <div className="flex flex-1 items-center justify-center py-8 sm:py-12">
             <div className="w-full max-w-4xl px-4 sm:px-6">
+              {/* MetaMask Not Installed Warning */}
+              {!isMetaMaskInstalled && (
+                <div className="mb-6 sm:mb-8 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50 to-red-50 border-2 border-amber-200 p-6 sm:p-8 shadow-lg">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">
+                        MetaMask Required
+                      </h3>
+                      <p className="text-sm sm:text-base text-slate-700 mb-4 leading-relaxed">
+                        ProRata Wallet requires MetaMask to function. Please
+                        install MetaMask browser extension to continue.
+                      </p>
+                      <a
+                        href="https://metamask.io/download/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 px-5 py-2.5 text-sm sm:text-base font-semibold text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                        Install MetaMask
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Hero Section */}
               <div className="text-center mb-8 sm:mb-12">
                 <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mb-6 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 shadow-2xl shadow-indigo-500/50 animate-pulse">
@@ -336,39 +427,76 @@ function App() {
                       collaborative finance.
                     </p>
                   </div>
-                  <button
-                    type="button"
-                    onClick={connectWallet}
-                    className="group relative inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 text-base sm:text-lg font-semibold text-white shadow-lg shadow-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    <svg
-                      className="w-5 h-5 sm:w-6 sm:h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  {isMetaMaskInstalled ? (
+                    <button
+                      type="button"
+                      onClick={connectWallet}
+                      className="group relative inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 text-base sm:text-lg font-semibold text-white shadow-lg shadow-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
-                    Connect Wallet
-                    <svg
-                      className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                      Connect Wallet
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </button>
+                  ) : (
+                    <a
+                      href="https://metamask.io/download/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 px-8 py-4 text-base sm:text-lg font-semibold text-white shadow-lg shadow-orange-500/50 hover:shadow-xl hover:shadow-orange-500/50 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                        />
+                      </svg>
+                      Install MetaMask
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                  )}
                   <div className="mt-6 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500">
                     <svg
                       className="w-4 h-4 text-emerald-500"
@@ -393,28 +521,30 @@ function App() {
               {/* Wallet List Section */}
               <div className="flex flex-col min-h-0 w-full">
                 <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-4 md:p-6 flex-1 flex flex-col min-h-0">
-                  <WalletList
-                    key={refreshKey}
-                    client={walletClient}
-                    account={address}
-                    refreshTrigger={refreshKey}
-                    selected={selected as string | undefined}
-                    setSelected={
-                      setSelected as React.Dispatch<
-                        React.SetStateAction<string | undefined>
-                      >
-                    }
-                    onCreateWallet={handleOpenCreateWalletModal}
-                  />
+                  {walletClient && (
+                    <WalletList
+                      key={refreshKey}
+                      client={walletClient as NonNullable<typeof walletClient>}
+                      account={address}
+                      refreshTrigger={refreshKey}
+                      selected={selected as string | undefined}
+                      setSelected={
+                        setSelected as React.Dispatch<
+                          React.SetStateAction<string | undefined>
+                        >
+                      }
+                      onCreateWallet={handleOpenCreateWalletModal}
+                    />
+                  )}
                 </div>
               </div>
 
               {/* Wallet Details Section */}
               <div className="flex flex-col min-h-0 w-full">
-                {selected ? (
+                {selected && walletClient ? (
                   <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-4 md:p-6 flex-1 flex flex-col min-h-0 shadow-sm">
                     <WalletDetails
-                      client={walletClient}
+                      client={walletClient as NonNullable<typeof walletClient>}
                       address={selected as string}
                       account={address}
                       onClose={() => setSelected(undefined)}
@@ -453,11 +583,11 @@ function App() {
         )}
 
         {/* Create Wallet Modal */}
-        {address && (
+        {address && walletClient && (
           <CreateInstantWalletModal
             isOpen={showCreateWalletModal}
             onClose={handleCloseCreateWalletModal}
-            walletClient={walletClient}
+            walletClient={walletClient as NonNullable<typeof walletClient>}
             account={address}
             onSuccess={handleWalletCreated}
           />
