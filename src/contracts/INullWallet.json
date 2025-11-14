@@ -1,0 +1,433 @@
+{
+  "contractName": "INullWallet",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "Initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "Withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"Initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"Withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/INullWallet.sol\":\"INullWallet\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/INullWallet.sol\":{\"keccak256\":\"0x067c9a250a76f47e3ff473efaa0e0cb299560e206182c2f696c3cf805df6bc91\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://46db24cef3872a64cf843a06ba31150bcea2a09c603d837578778cac9d35f020\",\"dweb:/ipfs/Qmbz6ANjYjSjTSZK44X7iiKr3B26KTe9FmcqeUv6Xfm9b9\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.10;\r\n\r\ninterface INullWallet {\r\n\r\n    function Initialize(address,address) external;\r\n    function Withdraw(address) external;\r\n}",
+  "sourcePath": "D:\\NewProjects\\ProRata Wallet\\Front\\contracts\\interfaces\\INullWallet.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/INullWallet.sol",
+    "exportedSymbols": {
+      "INullWallet": [
+        1448
+      ]
+    },
+    "id": 1449,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1435,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:24:7"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "INullWallet",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1448,
+        "linearizedBaseContracts": [
+          1448
+        ],
+        "name": "INullWallet",
+        "nameLocation": "71:11:7",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "dc90fed0",
+            "id": 1442,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Initialize",
+            "nameLocation": "101:10:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1440,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1437,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1442,
+                  "src": "112:7:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1436,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "112:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1439,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1442,
+                  "src": "120:7:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1438,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "120:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "111:17:7"
+            },
+            "returnParameters": {
+              "id": 1441,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "137:0:7"
+            },
+            "scope": 1448,
+            "src": "92:46:7",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f6761151",
+            "id": 1447,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Withdraw",
+            "nameLocation": "153:8:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1445,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1444,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1447,
+                  "src": "162:7:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1443,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "162:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "161:9:7"
+            },
+            "returnParameters": {
+              "id": 1446,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "179:0:7"
+            },
+            "scope": 1448,
+            "src": "144:36:7",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1449,
+        "src": "61:122:7",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:150:7"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/INullWallet.sol",
+    "exportedSymbols": {
+      "INullWallet": [
+        1448
+      ]
+    },
+    "id": 1449,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1435,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:24:7"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "INullWallet",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1448,
+        "linearizedBaseContracts": [
+          1448
+        ],
+        "name": "INullWallet",
+        "nameLocation": "71:11:7",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "dc90fed0",
+            "id": 1442,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Initialize",
+            "nameLocation": "101:10:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1440,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1437,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1442,
+                  "src": "112:7:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1436,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "112:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1439,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1442,
+                  "src": "120:7:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1438,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "120:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "111:17:7"
+            },
+            "returnParameters": {
+              "id": 1441,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "137:0:7"
+            },
+            "scope": 1448,
+            "src": "92:46:7",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f6761151",
+            "id": 1447,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Withdraw",
+            "nameLocation": "153:8:7",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1445,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1444,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1447,
+                  "src": "162:7:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1443,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "162:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "161:9:7"
+            },
+            "returnParameters": {
+              "id": 1446,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "179:0:7"
+            },
+            "scope": 1448,
+            "src": "144:36:7",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1449,
+        "src": "61:122:7",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:150:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2024-01-04T16:36:41.796Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

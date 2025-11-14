@@ -1,0 +1,1747 @@
+{
+  "contractName": "IInstantWallet",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getWallet",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "internalType": "address[]",
+              "name": "_list",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "_percent",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "bool",
+              "name": "_status",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_total",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IInstantWallet.wallets",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTransactionsCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTransactions",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "_side",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IInstantWallet.Transaction[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stop",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "start",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStopStatus",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_walletlist",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_percent",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "Initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_walletlist\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_percent\",\"type\":\"uint256[]\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"Initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStopStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTransactions\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_side\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"internalType\":\"struct IInstantWallet.Transaction[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTransactionsCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getWallet\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"address[]\",\"name\":\"_list\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_percent\",\"type\":\"uint256[]\"},{\"internalType\":\"bool\",\"name\":\"_status\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"_total\",\"type\":\"uint256\"}],\"internalType\":\"struct IInstantWallet.wallets\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"start\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stop\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IInstantWallet.sol\":\"IInstantWallet\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IInstantWallet.sol\":{\"keccak256\":\"0x21177211d7ac478891db58b2569a16ca99a89246ec441fa86ddb37925f1c989e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8efa05f35f5b868efb851128a9d5a6c9f0903e88d7dcfe814b8eab0fcaec64e4\",\"dweb:/ipfs/Qme3qdhnVeAQJDkzR1QTbTnBDT6LrcoPSqvQ3gDcpkLsYb\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.7;\r\n\r\ninterface IInstantWallet {\r\n    struct wallets {\r\n        string _name;\r\n        address[] _list;\r\n        uint256[] _percent;\r\n        bool _status;\r\n        uint256 _total;\r\n    }\r\n    struct Transaction {\r\n        address _from;\r\n        address _to;\r\n        string _side;\r\n        uint256 _amount;\r\n    }\r\n\r\n    function getWallet() external returns (wallets memory);\r\n\r\n    function getTransactionsCount() external returns (uint256);\r\n\r\n    function getTransactions() external returns (Transaction[] memory);\r\n\r\n    function stop() external;\r\n\r\n    function start() external;\r\n\r\n    function getStopStatus() external returns (bool);\r\n\r\n    function Initialize(\r\n        address[] memory _walletlist,\r\n        uint256[] memory _percent,\r\n        string memory _name,\r\n        address _owner\r\n    ) external; \r\n}\r\n",
+  "sourcePath": "D:\\NewProjects\\ProRata Wallet\\Front\\contracts\\interfaces\\IInstantWallet.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IInstantWallet.sol",
+    "exportedSymbols": {
+      "IInstantWallet": [
+        1433
+      ]
+    },
+    "id": 1434,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1368,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IInstantWallet",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1433,
+        "linearizedBaseContracts": [
+          1433
+        ],
+        "name": "IInstantWallet",
+        "nameLocation": "70:14:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IInstantWallet.wallets",
+            "id": 1381,
+            "members": [
+              {
+                "constant": false,
+                "id": 1370,
+                "mutability": "mutable",
+                "name": "_name",
+                "nameLocation": "125:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "118:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1369,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "118:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1373,
+                "mutability": "mutable",
+                "name": "_list",
+                "nameLocation": "151:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "141:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 1371,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "141:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 1372,
+                  "nodeType": "ArrayTypeName",
+                  "src": "141:9:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                    "typeString": "address[]"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1376,
+                "mutability": "mutable",
+                "name": "_percent",
+                "nameLocation": "177:8:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "167:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 1374,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "167:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1375,
+                  "nodeType": "ArrayTypeName",
+                  "src": "167:9:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1378,
+                "mutability": "mutable",
+                "name": "_status",
+                "nameLocation": "201:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "196:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1377,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "196:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1380,
+                "mutability": "mutable",
+                "name": "_total",
+                "nameLocation": "227:6:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "219:14:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1379,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "219:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "wallets",
+            "nameLocation": "99:7:6",
+            "nodeType": "StructDefinition",
+            "scope": 1433,
+            "src": "92:149:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IInstantWallet.Transaction",
+            "id": 1390,
+            "members": [
+              {
+                "constant": false,
+                "id": 1383,
+                "mutability": "mutable",
+                "name": "_from",
+                "nameLocation": "285:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "277:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1382,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "277:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1385,
+                "mutability": "mutable",
+                "name": "_to",
+                "nameLocation": "309:3:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "301:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1384,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "301:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1387,
+                "mutability": "mutable",
+                "name": "_side",
+                "nameLocation": "330:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "323:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1386,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "323:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1389,
+                "mutability": "mutable",
+                "name": "_amount",
+                "nameLocation": "354:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "346:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1388,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "346:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Transaction",
+            "nameLocation": "254:11:6",
+            "nodeType": "StructDefinition",
+            "scope": 1433,
+            "src": "247:122:6",
+            "visibility": "public"
+          },
+          {
+            "functionSelector": "13299604",
+            "id": 1396,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getWallet",
+            "nameLocation": "386:9:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1391,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "395:2:6"
+            },
+            "returnParameters": {
+              "id": 1395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1394,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1396,
+                  "src": "416:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_wallets_$1381_memory_ptr",
+                    "typeString": "struct IInstantWallet.wallets"
+                  },
+                  "typeName": {
+                    "id": 1393,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1392,
+                      "name": "wallets",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1381,
+                      "src": "416:7:6"
+                    },
+                    "referencedDeclaration": 1381,
+                    "src": "416:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_wallets_$1381_storage_ptr",
+                      "typeString": "struct IInstantWallet.wallets"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "415:16:6"
+            },
+            "scope": 1433,
+            "src": "377:55:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "578cb8f9",
+            "id": 1401,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTransactionsCount",
+            "nameLocation": "449:20:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1397,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "469:2:6"
+            },
+            "returnParameters": {
+              "id": 1400,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1399,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1401,
+                  "src": "490:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1398,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "490:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "489:9:6"
+            },
+            "scope": 1433,
+            "src": "440:59:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "83920e90",
+            "id": 1408,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTransactions",
+            "nameLocation": "516:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1402,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "531:2:6"
+            },
+            "returnParameters": {
+              "id": 1407,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1406,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1408,
+                  "src": "552:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Transaction_$1390_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IInstantWallet.Transaction[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1404,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1403,
+                        "name": "Transaction",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1390,
+                        "src": "552:11:6"
+                      },
+                      "referencedDeclaration": 1390,
+                      "src": "552:11:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Transaction_$1390_storage_ptr",
+                        "typeString": "struct IInstantWallet.Transaction"
+                      }
+                    },
+                    "id": 1405,
+                    "nodeType": "ArrayTypeName",
+                    "src": "552:13:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Transaction_$1390_storage_$dyn_storage_ptr",
+                      "typeString": "struct IInstantWallet.Transaction[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "551:22:6"
+            },
+            "scope": 1433,
+            "src": "507:67:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "07da68f5",
+            "id": 1411,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "stop",
+            "nameLocation": "591:4:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1409,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "595:2:6"
+            },
+            "returnParameters": {
+              "id": 1410,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "606:0:6"
+            },
+            "scope": 1433,
+            "src": "582:25:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "be9a6555",
+            "id": 1414,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "start",
+            "nameLocation": "624:5:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1412,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "629:2:6"
+            },
+            "returnParameters": {
+              "id": 1413,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "640:0:6"
+            },
+            "scope": 1433,
+            "src": "615:26:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "dd45c9b8",
+            "id": 1419,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStopStatus",
+            "nameLocation": "658:13:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1415,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "671:2:6"
+            },
+            "returnParameters": {
+              "id": 1418,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1417,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1419,
+                  "src": "692:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1416,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:6:6"
+            },
+            "scope": 1433,
+            "src": "649:49:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0a77ef40",
+            "id": 1432,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Initialize",
+            "nameLocation": "715:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1430,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1422,
+                  "mutability": "mutable",
+                  "name": "_walletlist",
+                  "nameLocation": "753:11:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "736:28:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1420,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "736:7:6",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1421,
+                    "nodeType": "ArrayTypeName",
+                    "src": "736:9:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1425,
+                  "mutability": "mutable",
+                  "name": "_percent",
+                  "nameLocation": "792:8:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "775:25:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1423,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "775:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1424,
+                    "nodeType": "ArrayTypeName",
+                    "src": "775:9:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1427,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nameLocation": "825:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "811:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 1426,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "811:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1429,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "849:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "841:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1428,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "841:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "725:137:6"
+            },
+            "returnParameters": {
+              "id": 1431,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "871:0:6"
+            },
+            "scope": 1433,
+            "src": "706:166:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1434,
+        "src": "60:816:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:845:6"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/IInstantWallet.sol",
+    "exportedSymbols": {
+      "IInstantWallet": [
+        1433
+      ]
+    },
+    "id": 1434,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1368,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IInstantWallet",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1433,
+        "linearizedBaseContracts": [
+          1433
+        ],
+        "name": "IInstantWallet",
+        "nameLocation": "70:14:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IInstantWallet.wallets",
+            "id": 1381,
+            "members": [
+              {
+                "constant": false,
+                "id": 1370,
+                "mutability": "mutable",
+                "name": "_name",
+                "nameLocation": "125:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "118:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1369,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "118:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1373,
+                "mutability": "mutable",
+                "name": "_list",
+                "nameLocation": "151:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "141:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 1371,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "141:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 1372,
+                  "nodeType": "ArrayTypeName",
+                  "src": "141:9:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                    "typeString": "address[]"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1376,
+                "mutability": "mutable",
+                "name": "_percent",
+                "nameLocation": "177:8:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "167:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 1374,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "167:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1375,
+                  "nodeType": "ArrayTypeName",
+                  "src": "167:9:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1378,
+                "mutability": "mutable",
+                "name": "_status",
+                "nameLocation": "201:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "196:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1377,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "196:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1380,
+                "mutability": "mutable",
+                "name": "_total",
+                "nameLocation": "227:6:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1381,
+                "src": "219:14:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1379,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "219:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "wallets",
+            "nameLocation": "99:7:6",
+            "nodeType": "StructDefinition",
+            "scope": 1433,
+            "src": "92:149:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IInstantWallet.Transaction",
+            "id": 1390,
+            "members": [
+              {
+                "constant": false,
+                "id": 1383,
+                "mutability": "mutable",
+                "name": "_from",
+                "nameLocation": "285:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "277:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1382,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "277:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1385,
+                "mutability": "mutable",
+                "name": "_to",
+                "nameLocation": "309:3:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "301:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1384,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "301:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1387,
+                "mutability": "mutable",
+                "name": "_side",
+                "nameLocation": "330:5:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "323:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1386,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "323:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1389,
+                "mutability": "mutable",
+                "name": "_amount",
+                "nameLocation": "354:7:6",
+                "nodeType": "VariableDeclaration",
+                "scope": 1390,
+                "src": "346:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1388,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "346:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Transaction",
+            "nameLocation": "254:11:6",
+            "nodeType": "StructDefinition",
+            "scope": 1433,
+            "src": "247:122:6",
+            "visibility": "public"
+          },
+          {
+            "functionSelector": "13299604",
+            "id": 1396,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getWallet",
+            "nameLocation": "386:9:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1391,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "395:2:6"
+            },
+            "returnParameters": {
+              "id": 1395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1394,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1396,
+                  "src": "416:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_wallets_$1381_memory_ptr",
+                    "typeString": "struct IInstantWallet.wallets"
+                  },
+                  "typeName": {
+                    "id": 1393,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1392,
+                      "name": "wallets",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1381,
+                      "src": "416:7:6"
+                    },
+                    "referencedDeclaration": 1381,
+                    "src": "416:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_wallets_$1381_storage_ptr",
+                      "typeString": "struct IInstantWallet.wallets"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "415:16:6"
+            },
+            "scope": 1433,
+            "src": "377:55:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "578cb8f9",
+            "id": 1401,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTransactionsCount",
+            "nameLocation": "449:20:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1397,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "469:2:6"
+            },
+            "returnParameters": {
+              "id": 1400,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1399,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1401,
+                  "src": "490:7:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1398,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "490:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "489:9:6"
+            },
+            "scope": 1433,
+            "src": "440:59:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "83920e90",
+            "id": 1408,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTransactions",
+            "nameLocation": "516:15:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1402,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "531:2:6"
+            },
+            "returnParameters": {
+              "id": 1407,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1406,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1408,
+                  "src": "552:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Transaction_$1390_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IInstantWallet.Transaction[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1404,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1403,
+                        "name": "Transaction",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1390,
+                        "src": "552:11:6"
+                      },
+                      "referencedDeclaration": 1390,
+                      "src": "552:11:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Transaction_$1390_storage_ptr",
+                        "typeString": "struct IInstantWallet.Transaction"
+                      }
+                    },
+                    "id": 1405,
+                    "nodeType": "ArrayTypeName",
+                    "src": "552:13:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Transaction_$1390_storage_$dyn_storage_ptr",
+                      "typeString": "struct IInstantWallet.Transaction[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "551:22:6"
+            },
+            "scope": 1433,
+            "src": "507:67:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "07da68f5",
+            "id": 1411,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "stop",
+            "nameLocation": "591:4:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1409,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "595:2:6"
+            },
+            "returnParameters": {
+              "id": 1410,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "606:0:6"
+            },
+            "scope": 1433,
+            "src": "582:25:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "be9a6555",
+            "id": 1414,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "start",
+            "nameLocation": "624:5:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1412,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "629:2:6"
+            },
+            "returnParameters": {
+              "id": 1413,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "640:0:6"
+            },
+            "scope": 1433,
+            "src": "615:26:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "dd45c9b8",
+            "id": 1419,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStopStatus",
+            "nameLocation": "658:13:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1415,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "671:2:6"
+            },
+            "returnParameters": {
+              "id": 1418,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1417,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1419,
+                  "src": "692:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1416,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:6:6"
+            },
+            "scope": 1433,
+            "src": "649:49:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0a77ef40",
+            "id": 1432,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Initialize",
+            "nameLocation": "715:10:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1430,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1422,
+                  "mutability": "mutable",
+                  "name": "_walletlist",
+                  "nameLocation": "753:11:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "736:28:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1420,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "736:7:6",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 1421,
+                    "nodeType": "ArrayTypeName",
+                    "src": "736:9:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1425,
+                  "mutability": "mutable",
+                  "name": "_percent",
+                  "nameLocation": "792:8:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "775:25:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1423,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "775:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1424,
+                    "nodeType": "ArrayTypeName",
+                    "src": "775:9:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1427,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nameLocation": "825:5:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "811:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 1426,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "811:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1429,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "849:6:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1432,
+                  "src": "841:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1428,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "841:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "725:137:6"
+            },
+            "returnParameters": {
+              "id": 1431,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "871:0:6"
+            },
+            "scope": 1433,
+            "src": "706:166:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1434,
+        "src": "60:816:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:845:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2024-01-04T16:36:41.795Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
