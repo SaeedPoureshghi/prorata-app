@@ -1,10 +1,14 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, Suspense, lazy } from "react";
 import "./App.css";
 import { createWalletClient, custom, publicActions } from "viem";
 import { bscTestnet } from "viem/chains";
-import WalletList from "./components/WalletsList";
-import WalletDetails from "./components/WalletDetails";
-import CreateInstantWalletModal from "./components/modal/CreateInstantWalletModal";
+
+// Lazy load components for code splitting
+const WalletList = lazy(() => import("./components/WalletsList"));
+const WalletDetails = lazy(() => import("./components/WalletDetails"));
+const CreateInstantWalletModal = lazy(
+  () => import("./components/modal/CreateInstantWalletModal")
+);
 
 function App() {
   const [address, setAddress] = useState("");
@@ -134,7 +138,11 @@ function App() {
       <div className="flex min-h-dvh w-full flex-col px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
         <header className="flex items-center justify-between py-3 sm:py-4 px-1 sm:px-2">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-indigo-600" />
+            <img
+              src="/favicon.svg"
+              alt="ProRata Wallet"
+              className="h-8 w-8 rounded-lg"
+            />
             <div className="flex flex-col">
               <div className="text-base sm:text-lg font-semibold tracking-tight">
                 ProRata Wallet
@@ -522,19 +530,31 @@ function App() {
               <div className="flex flex-col min-h-0 w-full">
                 <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-4 md:p-6 flex-1 flex flex-col min-h-0">
                   {walletClient && (
-                    <WalletList
-                      key={refreshKey}
-                      client={walletClient as NonNullable<typeof walletClient>}
-                      account={address}
-                      refreshTrigger={refreshKey}
-                      selected={selected as string | undefined}
-                      setSelected={
-                        setSelected as React.Dispatch<
-                          React.SetStateAction<string | undefined>
-                        >
+                    <Suspense
+                      fallback={
+                        <div className="flex items-center justify-center flex-1">
+                          <div className="text-slate-500">
+                            Loading wallets...
+                          </div>
+                        </div>
                       }
-                      onCreateWallet={handleOpenCreateWalletModal}
-                    />
+                    >
+                      <WalletList
+                        key={refreshKey}
+                        client={
+                          walletClient as NonNullable<typeof walletClient>
+                        }
+                        account={address}
+                        refreshTrigger={refreshKey}
+                        selected={selected as string | undefined}
+                        setSelected={
+                          setSelected as React.Dispatch<
+                            React.SetStateAction<string | undefined>
+                          >
+                        }
+                        onCreateWallet={handleOpenCreateWalletModal}
+                      />
+                    </Suspense>
                   )}
                 </div>
               </div>
@@ -543,12 +563,24 @@ function App() {
               <div className="flex flex-col min-h-0 w-full">
                 {selected && walletClient ? (
                   <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-4 md:p-6 flex-1 flex flex-col min-h-0 shadow-sm">
-                    <WalletDetails
-                      client={walletClient as NonNullable<typeof walletClient>}
-                      address={selected as string}
-                      account={address}
-                      onClose={() => setSelected(undefined)}
-                    />
+                    <Suspense
+                      fallback={
+                        <div className="flex items-center justify-center flex-1">
+                          <div className="text-slate-500">
+                            Loading wallet details...
+                          </div>
+                        </div>
+                      }
+                    >
+                      <WalletDetails
+                        client={
+                          walletClient as NonNullable<typeof walletClient>
+                        }
+                        address={selected as string}
+                        account={address}
+                        onClose={() => setSelected(undefined)}
+                      />
+                    </Suspense>
                   </div>
                 ) : (
                   <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6 sm:p-8 md:p-12 flex-1 flex items-center justify-center">
@@ -584,13 +616,15 @@ function App() {
 
         {/* Create Wallet Modal */}
         {address && walletClient && (
-          <CreateInstantWalletModal
-            isOpen={showCreateWalletModal}
-            onClose={handleCloseCreateWalletModal}
-            walletClient={walletClient as NonNullable<typeof walletClient>}
-            account={address}
-            onSuccess={handleWalletCreated}
-          />
+          <Suspense fallback={null}>
+            <CreateInstantWalletModal
+              isOpen={showCreateWalletModal}
+              onClose={handleCloseCreateWalletModal}
+              walletClient={walletClient as NonNullable<typeof walletClient>}
+              account={address}
+              onSuccess={handleWalletCreated}
+            />
+          </Suspense>
         )}
       </div>
     </div>
