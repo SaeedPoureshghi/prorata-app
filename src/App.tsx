@@ -115,13 +115,15 @@ function App() {
 
   return (
     <div className="min-h-dvh bg-slate-50 text-slate-900 font-poppins">
-      <div className="flex min-h-dvh w-full flex-col px-6 py-8">
-        <header className="flex items-center justify-between py-4 px-2">
+      <div className="flex min-h-dvh w-full flex-col px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
+        <header className="flex items-center justify-between py-3 sm:py-4 px-1 sm:px-2">
           <div className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-lg bg-indigo-600" />
-            <div className="text-lg font-semibold tracking-tight">
-              ProRata Wallet
-              <span className="ml-2 rounded bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700 align-middle">
+            <div className="flex flex-col">
+              <div className="text-base sm:text-lg font-semibold tracking-tight">
+                ProRata Wallet
+              </div>
+              <span className="rounded bg-red-100 px-1.5 sm:px-2 py-0.5 text-xs font-semibold text-red-700 w-fit">
                 Testnet
               </span>
             </div>
@@ -132,7 +134,7 @@ function App() {
                 <button
                   type="button"
                   onClick={() => setShowDisconnectMenu(!showDisconnectMenu)}
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-slate-200 bg-white px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50"
                   title={address}
                 >
                   <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
@@ -192,7 +194,7 @@ function App() {
               <button
                 type="button"
                 onClick={connectWallet}
-                className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+                className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
               >
                 Connect Wallet
               </button>
@@ -201,23 +203,196 @@ function App() {
         </header>
 
         {!address ? (
-          <div className="flex flex-1 items-center justify-center">
-            <div className="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center">
-              <div className="mb-3 text-xl font-semibold text-slate-800">
-                Welcome to ProRata Wallet
+          <div className="flex flex-1 items-center justify-center py-8 sm:py-12">
+            <div className="w-full max-w-4xl px-4 sm:px-6">
+              {/* Hero Section */}
+              <div className="text-center mb-8 sm:mb-12">
+                <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mb-6 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 shadow-2xl shadow-indigo-500/50 animate-pulse">
+                  <svg
+                    className="w-10 h-10 sm:w-12 sm:h-12 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+                    />
+                  </svg>
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  Welcome to ProRata Wallet
+                </h1>
+                <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                  The next-generation sharing wallet for collaborative asset
+                  management. Built for teams, communities, and decentralized
+                  organizations.
+                </p>
               </div>
-              <div className="mb-4 text-base text-slate-600">
-                ProRata is a sharing wallet: collaborate with others to manage
-                and share assets seamlessly, transparently, and securely.
+
+              {/* Feature Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+                {/* Feature 1 */}
+                <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-slate-50 p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center mb-4 shadow-lg">
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                      Multi-Owner Wallets
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Create shared wallets with multiple owners. Each owner has
+                      a customizable percentage stake.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 2 */}
+                <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-slate-50 p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4 shadow-lg">
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                      Secure & Transparent
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Built on blockchain technology. All transactions are
+                      transparent, verifiable, and secure.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 3 */}
+                <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-slate-50 p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center mb-4 shadow-lg">
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                      Instant Setup
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Create and deploy wallets instantly. No complex setup
+                      required. Start collaborating in seconds.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Section */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl" />
+                <div className="relative rounded-2xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border border-indigo-200/50 p-8 sm:p-10 text-center backdrop-blur-sm">
+                  <div className="mb-6">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+                      Ready to Get Started?
+                    </h2>
+                    <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto">
+                      Connect your wallet to create your first shared wallet or
+                      join an existing one. Experience the future of
+                      collaborative finance.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={connectWallet}
+                    className="group relative inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 text-base sm:text-lg font-semibold text-white shadow-lg shadow-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                    <svg
+                      className="w-5 h-5 sm:w-6 sm:h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                    Connect Wallet
+                    <svg
+                      className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </button>
+                  <div className="mt-6 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500">
+                    <svg
+                      className="w-4 h-4 text-emerald-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>Secure • Decentralized • Trustless</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         ) : (
           <main className="flex-1 flex flex-col min-h-0 w-full">
-            <div className="flex-1 grid grid-cols-1 lg:grid-cols-[400px_1fr] xl:grid-cols-[450px_1fr] gap-6 min-h-0 w-full px-2">
+            <div className="flex-1 grid grid-cols-1 lg:grid-cols-[400px_1fr] xl:grid-cols-[450px_1fr] gap-4 sm:gap-6 min-h-0 w-full">
               {/* Wallet List Section */}
               <div className="flex flex-col min-h-0 w-full">
-                <div className="rounded-xl border border-slate-200 bg-white p-6 flex-1 flex flex-col min-h-0">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-4 md:p-6 flex-1 flex flex-col min-h-0">
                   <WalletList
                     key={refreshKey}
                     client={walletClient}
@@ -237,7 +412,7 @@ function App() {
               {/* Wallet Details Section */}
               <div className="flex flex-col min-h-0 w-full">
                 {selected ? (
-                  <div className="rounded-xl border border-slate-200 bg-white p-6 flex-1 flex flex-col min-h-0 shadow-sm">
+                  <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-4 md:p-6 flex-1 flex flex-col min-h-0 shadow-sm">
                     <WalletDetails
                       client={walletClient}
                       address={selected as string}
@@ -246,7 +421,7 @@ function App() {
                     />
                   </div>
                 ) : (
-                  <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-12 flex-1 flex items-center justify-center">
+                  <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6 sm:p-8 md:p-12 flex-1 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-200 flex items-center justify-center">
                         <svg

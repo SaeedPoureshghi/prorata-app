@@ -95,20 +95,20 @@ const WalletDetails = (props: {
     );
   }
   return (
-    <div className="flex flex-col gap-6 h-full">
+    <div className="flex flex-col gap-4 sm:gap-6 h-full">
       {/* Header */}
-      <div className="flex items-center justify-between border-b pb-4 border-slate-200">
-        <div className="flex items-center gap-4">
-          <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-indigo-600 shadow-lg">
-            <span className="text-2xl font-bold text-white">
+      <div className="flex items-center justify-between border-b pb-3 sm:pb-4 border-slate-200">
+        <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
+          <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-indigo-600 shadow-lg">
+            <span className="text-lg sm:text-2xl font-bold text-white">
               {detail?._name?.charAt(0) || "W"}
             </span>
           </div>
-          <div>
-            <div className="text-xl font-semibold text-slate-900">
+          <div className="min-w-0 flex-1">
+            <div className="text-base sm:text-lg md:text-xl font-semibold text-slate-900 truncate">
               {detail?._name || "Wallet Name"}
             </div>
-            <div className="flex gap-2 items-center mt-1">
+            <div className="flex gap-1.5 sm:gap-2 items-center mt-1 flex-wrap">
               <span
                 className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
                   detail?._status
@@ -118,7 +118,7 @@ const WalletDetails = (props: {
               >
                 {detail?._status ? "Stoped" : "Active"}
               </span>
-              <span className="font-mono text-xs text-slate-500 bg-slate-50 px-2 py-1 rounded">
+              <span className="font-mono text-xs text-slate-500 bg-slate-50 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded break-all">
                 {props.address.slice(0, 6)}...{props.address.slice(-4)}
               </span>
             </div>
@@ -150,7 +150,7 @@ const WalletDetails = (props: {
 
       {/* Owners Section */}
       <div>
-        <div className="font-semibold text-sm text-slate-700 mb-3 flex items-center gap-2">
+        <div className="font-semibold text-sm text-slate-700 mb-2 sm:mb-3 flex items-center gap-2">
           <svg
             className="w-4 h-4 text-indigo-500"
             fill="none"
@@ -170,17 +170,17 @@ const WalletDetails = (props: {
           {detail?._list?.map((owner, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 rounded-lg bg-gradient-to-r from-slate-50 to-slate-100 px-4 py-3 border border-slate-200 hover:border-indigo-200 transition-colors"
+              className="flex items-center gap-2 sm:gap-3 rounded-lg bg-gradient-to-r from-slate-50 to-slate-100 px-3 sm:px-4 py-2 sm:py-3 border border-slate-200 hover:border-indigo-200 transition-colors"
             >
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
                 <span className="text-xs font-semibold text-indigo-600">
                   {index + 1}
                 </span>
               </div>
-              <span className="font-mono text-slate-800 text-sm select-all truncate flex-1">
+              <span className="font-mono text-slate-800 text-xs sm:text-sm select-all truncate flex-1 min-w-0">
                 {owner.slice(0, 10)}...{owner.slice(-8)}
               </span>
-              <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+              <span className="bg-indigo-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold flex-shrink-0">
                 {detail?._percent[index]}%
               </span>
               <button
@@ -222,10 +222,10 @@ const WalletDetails = (props: {
 
       {/* Transactions Section */}
       <div className="flex-1 flex flex-col min-h-0">
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
           <div className="font-semibold text-sm text-slate-700 flex items-center gap-2">
             <svg
-              className="w-4 h-4 text-indigo-500"
+              className="w-4 h-4 text-indigo-500 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -239,7 +239,7 @@ const WalletDetails = (props: {
             </svg>
             Transactions
           </div>
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-1.5 sm:gap-2 cursor-pointer flex-shrink-0">
             <span className="text-xs text-slate-600 font-medium">Show OUT</span>
             <div className="relative">
               <input
@@ -311,14 +311,14 @@ const WalletDetails = (props: {
                   No {showOutTransactions ? "" : "IN "}transactions found
                 </div>
               ) : (
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2 sm:gap-3">
                   {filteredTransactions.map((tx, index) => (
                     <div
                       key={index}
-                      className="flex flex-col gap-3 rounded-lg bg-gradient-to-br from-white to-slate-50 px-4 py-3 border border-slate-200 hover:border-indigo-200 hover:shadow-sm transition-all"
+                      className="flex flex-col gap-2 sm:gap-3 rounded-lg bg-gradient-to-br from-white to-slate-50 px-3 sm:px-4 py-2 sm:py-3 border border-slate-200 hover:border-indigo-200 hover:shadow-sm transition-all"
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1">
                           <div
                             className={`w-2 h-2 rounded-full ${
                               tx._side === "in" ? "bg-green-500" : "bg-red-500"
@@ -327,12 +327,12 @@ const WalletDetails = (props: {
                           <span className="text-xs font-medium text-slate-500">
                             From:
                           </span>
-                          <span className="font-mono text-slate-800 text-sm select-all">
+                          <span className="font-mono text-slate-800 text-xs sm:text-sm select-all truncate">
                             {tx._from.slice(0, 10)}...{tx._from.slice(-8)}
                           </span>
                         </div>
                         <span
-                          className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
+                          className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-xs font-semibold flex-shrink-0 ${
                             tx._side === "in"
                               ? "bg-green-100 text-green-700"
                               : "bg-red-100 text-red-700"
@@ -341,19 +341,19 @@ const WalletDetails = (props: {
                           {tx._side?.toUpperCase()}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-medium text-slate-500">
+                      <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                        <span className="text-xs font-medium text-slate-500 flex-shrink-0">
                           To:
                         </span>
-                        <span className="font-mono text-slate-800 text-sm select-all">
+                        <span className="font-mono text-slate-800 text-xs sm:text-sm select-all truncate">
                           {tx._to.slice(0, 10)}...{tx._to.slice(-8)}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-200">
-                        <span className="text-xs font-medium text-slate-500">
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-200 gap-2">
+                        <span className="text-xs font-medium text-slate-500 flex-shrink-0">
                           Amount:
                         </span>
-                        <span className="font-bold text-slate-900 text-base">
+                        <span className="font-bold text-slate-900 text-sm sm:text-base truncate text-right">
                           {formatEther(tx._amount)} ETH
                         </span>
                       </div>

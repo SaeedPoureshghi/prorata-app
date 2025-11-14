@@ -154,10 +154,10 @@ const WalletList = (props: Wallets) => {
   return (
     <div className="flex flex-col h-full">
       {props.onCreateWallet && (
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-3 sm:mb-4">
           <button
             type="button"
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg bg-indigo-600 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onClick={props.onCreateWallet}
           >
             <svg
@@ -178,8 +178,8 @@ const WalletList = (props: Wallets) => {
           </button>
         </div>
       )}
-      <div className="flex-1 overflow-y-auto min-h-0">
-        <div className="grid grid-cols-1 gap-3">
+      <div className="flex-1 overflow-y-auto min-h-0 -mx-1 sm:mx-0">
+        <div className="grid grid-cols-1 gap-2 sm:gap-3 px-1 sm:px-0">
           {list.map((w, idx) => {
             const isSelected = props.selected === w._address;
             return (
@@ -194,28 +194,28 @@ const WalletList = (props: Wallets) => {
                     }
                   }
                 }}
-                className={`rounded-xl border p-5 flex flex-col gap-3 transition-all cursor-pointer ${
+                className={`rounded-xl border p-3 sm:p-4 md:p-5 flex flex-col gap-2 sm:gap-3 transition-all cursor-pointer ${
                   isSelected
                     ? "border-indigo-500 bg-indigo-50 shadow-lg ring-2 ring-indigo-200"
                     : "border-slate-200 bg-white hover:shadow-md hover:border-indigo-200"
                 }`}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                   <div
-                    className={`w-3 h-3 rounded-full border-2 mr-1 ${
+                    className={`w-3 h-3 rounded-full border-2 flex-shrink-0 ${
                       isSelected
                         ? "bg-indigo-500 border-indigo-600"
                         : "bg-indigo-200 border-indigo-300"
                     }`}
                   ></div>
                   <span
-                    className={`font-semibold text-lg tracking-tight ${
+                    className={`font-semibold text-base sm:text-lg tracking-tight flex-shrink-0 ${
                       isSelected ? "text-indigo-900" : "text-slate-900"
                     }`}
                   >
                     {w._name}
                   </span>
-                  <div className="ml-auto flex items-center gap-2">
+                  <div className="ml-auto flex items-center gap-1.5 sm:gap-2 flex-wrap">
                     {w._isShared && (
                       <span
                         className={`px-2 py-0.5 rounded text-xs font-semibold border ${
@@ -249,12 +249,12 @@ const WalletList = (props: Wallets) => {
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="font-mono text-slate-700 text-[15px] bg-slate-100 rounded px-3 py-1.5 select-all shadow-sm">
+                <div className="flex items-center gap-1.5 sm:gap-2 mt-1 flex-wrap">
+                  <span className="font-mono text-slate-700 text-xs sm:text-sm md:text-[15px] bg-slate-100 rounded px-2 sm:px-3 py-1 sm:py-1.5 select-all shadow-sm break-all">
                     {w._address.slice(0, 8)}...{w._address.slice(-6)}
                   </span>
                   <button
-                    className="ml-2 text-indigo-400 hover:text-indigo-600 transition-colors text-xs font-medium inline-flex items-center bg-indigo-50 border border-indigo-100 rounded px-2 py-1"
+                    className="text-indigo-400 hover:text-indigo-600 transition-colors text-xs font-medium inline-flex items-center bg-indigo-50 border border-indigo-100 rounded px-1.5 sm:px-2 py-0.5 sm:py-1 flex-shrink-0"
                     onClick={(e) => {
                       e.stopPropagation();
                       navigator.clipboard.writeText(w._address);
@@ -291,7 +291,7 @@ const WalletList = (props: Wallets) => {
                   </button>
                   {props.setSelected && (
                     <button
-                      className={`ml-2 transition-colors text-xs font-semibold inline-flex items-center rounded px-3 py-1.5 ${
+                      className={`transition-colors text-xs font-semibold inline-flex items-center rounded px-2 sm:px-3 py-1 sm:py-1.5 flex-shrink-0 ${
                         isSelected
                           ? "text-indigo-700 bg-white border border-indigo-300 hover:bg-indigo-50"
                           : "text-white bg-indigo-500 hover:bg-indigo-600"
