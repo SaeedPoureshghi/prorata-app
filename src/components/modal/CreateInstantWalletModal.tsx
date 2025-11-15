@@ -221,16 +221,16 @@ const CreateInstantWalletModal = ({
       />
 
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-2xl mx-4 bg-white rounded-xl shadow-2xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="relative z-10 w-full max-w-2xl mx-4 bg-[var(--neutral-medium)] rounded-xl shadow-2xl max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200">
-          <h2 className="text-xl font-semibold text-slate-900">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--neutral-lighter)]">
+          <h2 className="text-xl font-semibold text-[var(--text-primary)]">
             Create New Instant Wallet
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-600 transition-colors"
+            className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             disabled={isSubmitting || isWaitingConfirmation}
           >
             <svg
@@ -256,7 +256,7 @@ const CreateInstantWalletModal = ({
             <div>
               <label
                 htmlFor="walletName"
-                className="block text-sm font-medium text-slate-700 mb-2"
+                className="block text-sm font-medium text-[var(--text-primary)] mb-2"
               >
                 Wallet Name
               </label>
@@ -265,7 +265,7 @@ const CreateInstantWalletModal = ({
                 id="walletName"
                 value={walletName}
                 onChange={(e) => setWalletName(e.target.value)}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                className="w-full px-4 py-2 border border-[var(--neutral-lighter)] rounded-lg bg-[var(--neutral-light)] text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] outline-none"
                 placeholder="Enter wallet name"
                 disabled={isSubmitting || isWaitingConfirmation}
                 required
@@ -275,13 +275,13 @@ const CreateInstantWalletModal = ({
             {/* Addresses and Shares */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <label className="block text-sm font-medium text-slate-700">
+                <label className="block text-sm font-medium text-[var(--text-primary)]">
                   Addresses & Shares
                 </label>
                 <button
                   type="button"
                   onClick={addAddressShare}
-                  className="text-sm text-indigo-600 hover:text-indigo-700 font-medium inline-flex items-center gap-1"
+                  className="text-sm text-[var(--primary-color)] hover:text-[var(--primary-light)] font-medium inline-flex items-center gap-1"
                   disabled={isSubmitting || isWaitingConfirmation}
                 >
                   <svg
@@ -305,13 +305,13 @@ const CreateInstantWalletModal = ({
                 {addressShares.map((as, index) => (
                   <div
                     key={index}
-                    className="flex gap-3 items-start p-4 bg-slate-50 rounded-lg border border-slate-200"
+                    className="flex gap-3 items-start p-4 bg-[var(--neutral-light)] rounded-lg border border-[var(--neutral-lighter)]"
                   >
                     <div className="flex-1 space-y-3">
                       <div>
                         <label
                           htmlFor={`address-${index}`}
-                          className="block text-xs font-medium text-slate-600 mb-1"
+                          className="block text-xs font-medium text-[var(--text-secondary)] mb-1"
                         >
                           Address {index + 1}
                         </label>
@@ -322,7 +322,7 @@ const CreateInstantWalletModal = ({
                           onChange={(e) =>
                             updateAddressShare(index, "address", e.target.value)
                           }
-                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none font-mono"
+                          className="w-full px-3 py-2 text-sm border border-[var(--neutral-lighter)] rounded-lg bg-[var(--neutral-medium)] text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] outline-none font-mono"
                           placeholder="0x..."
                           disabled={isSubmitting || isWaitingConfirmation}
                           required
@@ -331,7 +331,7 @@ const CreateInstantWalletModal = ({
                       <div>
                         <label
                           htmlFor={`share-${index}`}
-                          className="block text-xs font-medium text-slate-600 mb-1"
+                          className="block text-xs font-medium text-[var(--text-secondary)] mb-1"
                         >
                           Share (%)
                         </label>
@@ -342,7 +342,7 @@ const CreateInstantWalletModal = ({
                           onChange={(e) =>
                             updateAddressShare(index, "share", e.target.value)
                           }
-                          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                          className="w-full px-3 py-2 text-sm border border-[var(--neutral-lighter)] rounded-lg bg-[var(--neutral-medium)] text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] outline-none"
                           placeholder="0"
                           min="0"
                           max="100"
@@ -356,7 +356,7 @@ const CreateInstantWalletModal = ({
                       <button
                         type="button"
                         onClick={() => removeAddressShare(index)}
-                        className="mt-7 text-slate-400 hover:text-red-600 transition-colors"
+                        className="mt-7 text-[var(--text-muted)] hover:text-red-500 transition-colors"
                         disabled={isSubmitting || isWaitingConfirmation}
                       >
                         <svg
@@ -379,23 +379,23 @@ const CreateInstantWalletModal = ({
               </div>
 
               {/* Total Share Display */}
-              <div className="mt-3 px-4 py-2 bg-slate-100 rounded-lg">
+              <div className="mt-3 px-4 py-2 bg-[var(--neutral-light)] rounded-lg">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-medium text-slate-700">
+                  <span className="font-medium text-[var(--text-primary)]">
                     Total Share:
                   </span>
                   <span
                     className={`font-semibold ${
                       Math.abs(totalShare - 100) < 0.01
-                        ? "text-green-600"
-                        : "text-red-600"
+                        ? "text-[var(--secondary-color)]"
+                        : "text-red-500"
                     }`}
                   >
                     {totalShare.toFixed(2)}%
                   </span>
                 </div>
                 {Math.abs(totalShare - 100) >= 0.01 && (
-                  <p className="text-xs text-red-600 mt-1">
+                  <p className="text-xs text-red-500 mt-1">
                     Shares must sum to exactly 100%
                   </p>
                 )}
@@ -404,25 +404,25 @@ const CreateInstantWalletModal = ({
 
             {/* Error Message */}
             {error && (
-              <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-sm text-red-600">{error}</p>
+              <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
+                <p className="text-sm text-red-400">{error}</p>
               </div>
             )}
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-200 bg-slate-50">
+          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[var(--neutral-lighter)] bg-[var(--neutral-light)]">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-[var(--text-primary)] bg-[var(--neutral-medium)] border border-[var(--neutral-lighter)] rounded-lg hover:bg-[var(--neutral-lighter)] transition-colors"
               disabled={isSubmitting || isWaitingConfirmation}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-2"
+              className="px-4 py-2 text-sm font-semibold text-[var(--neutral-dark)] bg-[var(--primary-color)] rounded-lg hover:bg-[var(--primary-light)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-2"
               disabled={
                 isSubmitting ||
                 isWaitingConfirmation ||

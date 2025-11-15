@@ -68,7 +68,7 @@ const WalletDetails = (props: {
       <div className="flex items-center justify-center py-12 h-full">
         <div className="flex flex-col items-center gap-3">
           <svg
-            className="animate-spin h-8 w-8 text-indigo-500"
+            className="animate-spin h-8 w-8 text-[var(--primary-color)]"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ const WalletDetails = (props: {
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
             />
           </svg>
-          <span className="text-slate-500 text-sm font-medium">
+          <span className="text-[var(--text-secondary)] text-sm font-medium">
             Loading wallet details...
           </span>
         </div>
@@ -97,28 +97,28 @@ const WalletDetails = (props: {
   return (
     <div className="flex flex-col gap-4 sm:gap-6 h-full">
       {/* Header */}
-      <div className="flex items-center justify-between border-b pb-3 sm:pb-4 border-slate-200">
+      <div className="flex items-center justify-between border-b pb-3 sm:pb-4 border-[var(--neutral-lighter)]">
         <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
-          <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-indigo-600 shadow-lg">
-            <span className="text-lg sm:text-2xl font-bold text-white">
+          <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-[var(--primary-color)] shadow-lg">
+            <span className="text-lg sm:text-2xl font-bold text-[var(--neutral-dark)]">
               {detail?._name?.charAt(0) || "W"}
             </span>
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-base sm:text-lg md:text-xl font-semibold text-slate-900 truncate">
+            <div className="text-base sm:text-lg md:text-xl font-semibold text-[var(--text-primary)] truncate">
               {detail?._name || "Wallet Name"}
             </div>
             <div className="flex gap-1.5 sm:gap-2 items-center mt-1 flex-wrap">
               <span
                 className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
                   detail?._status
-                    ? "bg-red-100 text-red-700"
-                    : "bg-green-100 text-green-700"
+                    ? "bg-red-500/20 text-red-400"
+                    : "bg-[var(--secondary-color)]/20 text-[var(--secondary-color)]"
                 }`}
               >
                 {detail?._status ? "Stoped" : "Active"}
               </span>
-              <span className="font-mono text-xs text-slate-500 bg-slate-50 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded break-all">
+              <span className="font-mono text-xs text-[var(--text-secondary)] bg-[var(--neutral-light)] px-1.5 sm:px-2 py-0.5 sm:py-1 rounded break-all">
                 {props.address.slice(0, 6)}...{props.address.slice(-4)}
               </span>
             </div>
@@ -127,12 +127,12 @@ const WalletDetails = (props: {
         {props.onClose && (
           <button
             onClick={props.onClose}
-            className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-[var(--neutral-lighter)] rounded-lg transition-colors"
             title="Close Details"
             type="button"
           >
             <svg
-              className="w-5 h-5 text-slate-500"
+              className="w-5 h-5 text-[var(--text-secondary)]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -150,9 +150,9 @@ const WalletDetails = (props: {
 
       {/* Owners Section */}
       <div>
-        <div className="font-semibold text-sm text-slate-700 mb-2 sm:mb-3 flex items-center gap-2">
+        <div className="font-semibold text-sm text-[var(--text-primary)] mb-2 sm:mb-3 flex items-center gap-2">
           <svg
-            className="w-4 h-4 text-indigo-500"
+            className="w-4 h-4 text-[var(--primary-color)]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -170,21 +170,21 @@ const WalletDetails = (props: {
           {detail?._list?.map((owner, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 sm:gap-3 rounded-lg bg-gradient-to-r from-slate-50 to-slate-100 px-3 sm:px-4 py-2 sm:py-3 border border-slate-200 hover:border-indigo-200 transition-colors"
+              className="flex items-center gap-2 sm:gap-3 rounded-lg bg-[var(--neutral-light)] px-3 sm:px-4 py-2 sm:py-3 border border-[var(--neutral-lighter)] hover:border-[var(--primary-color)] transition-colors"
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
-                <span className="text-xs font-semibold text-indigo-600">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--primary-color)]/20 flex items-center justify-center">
+                <span className="text-xs font-semibold text-[var(--primary-color)]">
                   {index + 1}
                 </span>
               </div>
-              <span className="font-mono text-slate-800 text-xs sm:text-sm select-all truncate flex-1 min-w-0">
+              <span className="font-mono text-[var(--text-primary)] text-xs sm:text-sm select-all truncate flex-1 min-w-0">
                 {owner.slice(0, 10)}...{owner.slice(-8)}
               </span>
-              <span className="bg-indigo-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold flex-shrink-0">
+              <span className="bg-[var(--primary-color)] text-[var(--neutral-dark)] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold flex-shrink-0">
                 {detail?._percent[index]}%
               </span>
               <button
-                className="p-1.5 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded transition-colors"
+                className="p-1.5 text-[var(--primary-color)] hover:text-[var(--primary-light)] hover:bg-[var(--primary-color)]/10 rounded transition-colors"
                 onClick={() => navigator.clipboard.writeText(owner)}
                 title="Copy Address"
                 type="button"
@@ -223,9 +223,9 @@ const WalletDetails = (props: {
       {/* Transactions Section */}
       <div className="flex-1 flex flex-col min-h-0">
         <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-          <div className="font-semibold text-sm text-slate-700 flex items-center gap-2">
+          <div className="font-semibold text-sm text-[var(--text-primary)] flex items-center gap-2">
             <svg
-              className="w-4 h-4 text-indigo-500 flex-shrink-0"
+              className="w-4 h-4 text-[var(--primary-color)] flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -240,7 +240,7 @@ const WalletDetails = (props: {
             Transactions
           </div>
           <label className="flex items-center gap-1.5 sm:gap-2 cursor-pointer flex-shrink-0">
-            <span className="text-xs text-slate-600 font-medium">Show OUT</span>
+            <span className="text-xs text-[var(--text-secondary)] font-medium">Show OUT</span>
             <div className="relative">
               <input
                 type="checkbox"
@@ -250,11 +250,11 @@ const WalletDetails = (props: {
               />
               <div
                 className={`w-11 h-6 rounded-full transition-colors duration-200 ${
-                  showOutTransactions ? "bg-indigo-500" : "bg-slate-300"
+                  showOutTransactions ? "bg-[var(--primary-color)]" : "bg-[var(--neutral-lighter)]"
                 }`}
               >
                 <div
-                  className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-200 ${
+                  className={`w-5 h-5 bg-[var(--neutral-white)] rounded-full shadow-md transform transition-transform duration-200 ${
                     showOutTransactions ? "translate-x-5" : "translate-x-0.5"
                   } mt-0.5`}
                 />
@@ -265,7 +265,7 @@ const WalletDetails = (props: {
         {isLoadingTransactions ? (
           <div className="flex items-center justify-center py-4">
             <svg
-              className="animate-spin h-5 w-5 text-indigo-400 mr-2"
+              className="animate-spin h-5 w-5 text-[var(--primary-color)] mr-2"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -284,7 +284,7 @@ const WalletDetails = (props: {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
               />
             </svg>
-            <span className="text-slate-400 text-sm">
+            <span className="text-[var(--text-muted)] text-sm">
               Loading transactions...
             </span>
           </div>
@@ -293,7 +293,7 @@ const WalletDetails = (props: {
             {(() => {
               if (!transactions || !Array.isArray(transactions)) {
                 return (
-                  <div className="text-slate-400 text-sm py-8 text-center bg-slate-50 rounded-lg border border-slate-200">
+                  <div className="text-[var(--text-muted)] text-sm py-8 text-center bg-[var(--neutral-light)] rounded-lg border border-[var(--neutral-lighter)]">
                     No transactions found
                   </div>
                 );
@@ -307,7 +307,7 @@ const WalletDetails = (props: {
                   });
 
               return filteredTransactions.length === 0 ? (
-                <div className="text-slate-400 text-sm py-8 text-center bg-slate-50 rounded-lg border border-slate-200">
+                <div className="text-[var(--text-muted)] text-sm py-8 text-center bg-[var(--neutral-light)] rounded-lg border border-[var(--neutral-lighter)]">
                   No {showOutTransactions ? "" : "IN "}transactions found
                 </div>
               ) : (
@@ -315,46 +315,46 @@ const WalletDetails = (props: {
                   {filteredTransactions.map((tx, index) => (
                     <div
                       key={index}
-                      className="flex flex-col gap-2 sm:gap-3 rounded-lg bg-gradient-to-br from-white to-slate-50 px-3 sm:px-4 py-2 sm:py-3 border border-slate-200 hover:border-indigo-200 hover:shadow-sm transition-all"
+                      className="flex flex-col gap-2 sm:gap-3 rounded-lg bg-[var(--neutral-medium)] px-3 sm:px-4 py-2 sm:py-3 border border-[var(--neutral-lighter)] hover:border-[var(--primary-color)] hover:shadow-sm transition-all"
                     >
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1">
                           <div
                             className={`w-2 h-2 rounded-full ${
-                              tx._side === "in" ? "bg-green-500" : "bg-red-500"
+                              tx._side === "in" ? "bg-[var(--secondary-color)]" : "bg-red-500"
                             }`}
                           />
-                          <span className="text-xs font-medium text-slate-500">
+                          <span className="text-xs font-medium text-[var(--text-secondary)]">
                             From:
                           </span>
-                          <span className="font-mono text-slate-800 text-xs sm:text-sm select-all truncate">
+                          <span className="font-mono text-[var(--text-primary)] text-xs sm:text-sm select-all truncate">
                             {tx._from.slice(0, 10)}...{tx._from.slice(-8)}
                           </span>
                         </div>
                         <span
                           className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-xs font-semibold flex-shrink-0 ${
                             tx._side === "in"
-                              ? "bg-green-100 text-green-700"
-                              : "bg-red-100 text-red-700"
+                              ? "bg-[var(--secondary-color)]/20 text-[var(--secondary-color)]"
+                              : "bg-red-500/20 text-red-400"
                           }`}
                         >
                           {tx._side?.toUpperCase()}
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-                        <span className="text-xs font-medium text-slate-500 flex-shrink-0">
+                        <span className="text-xs font-medium text-[var(--text-secondary)] flex-shrink-0">
                           To:
                         </span>
-                        <span className="font-mono text-slate-800 text-xs sm:text-sm select-all truncate">
+                        <span className="font-mono text-[var(--text-primary)] text-xs sm:text-sm select-all truncate">
                           {tx._to.slice(0, 10)}...{tx._to.slice(-8)}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-200 gap-2">
-                        <span className="text-xs font-medium text-slate-500 flex-shrink-0">
+                      <div className="flex items-center justify-between pt-2 border-t border-[var(--neutral-lighter)] gap-2">
+                        <span className="text-xs font-medium text-[var(--text-secondary)] flex-shrink-0">
                           Amount:
                         </span>
-                        <span className="font-bold text-slate-900 text-sm sm:text-base truncate text-right">
-                          {formatEther(tx._amount)} ETH
+                        <span className="font-bold text-[var(--text-primary)] text-sm sm:text-base truncate text-right">
+                          {formatEther(tx._amount)} BNB
                         </span>
                       </div>
                     </div>
