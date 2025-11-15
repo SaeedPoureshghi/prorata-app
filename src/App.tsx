@@ -117,9 +117,12 @@ function App() {
   };
 
   const openMetaMaskApp = () => {
-    const currentUrl = encodeURIComponent(window.location.href);
+    const fixedUrl = "https://prorata.saeedpoureshghi.dev";
     // Use MetaMask universal link that works for both iOS and Android
-    const metamaskUrl = `https://metamask.app.link/dapp/${currentUrl}`;
+    // MetaMask expects the URL to be passed as a query parameter
+    const metamaskUrl = `https://metamask.app.link/dapp?url=${encodeURIComponent(
+      fixedUrl
+    )}`;
     window.location.href = metamaskUrl;
   };
 
