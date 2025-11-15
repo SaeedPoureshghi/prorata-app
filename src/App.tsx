@@ -110,9 +110,37 @@ function App() {
     }
   };
 
+  const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+  };
+
+  const openMetaMaskApp = () => {
+    const currentUrl = encodeURIComponent(window.location.href);
+    // Use MetaMask universal link that works for both iOS and Android
+    const metamaskUrl = `https://metamask.app.link/dapp/${currentUrl}`;
+    window.location.href = metamaskUrl;
+  };
+
+  const handleInstallMetaMask = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isMobile()) {
+      e.preventDefault();
+      openMetaMaskApp();
+    }
+    // On desktop, let the default link behavior work (navigate to download page)
+  };
+
   const connectWallet = async () => {
     try {
       const ethereum = window.ethereum;
+
+      // On mobile, if MetaMask is not detected, try to open MetaMask app
+      if (!ethereum && isMobile()) {
+        openMetaMaskApp();
+        return;
+      }
+
       if (!ethereum || !walletClient) {
         setIsMetaMaskInstalled(false);
         return;
@@ -305,6 +333,7 @@ function App() {
                 href="https://metamask.io/download/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleInstallMetaMask}
                 className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[var(--secondary-color)] px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-[var(--neutral-dark)] shadow-sm hover:shadow-md hover:scale-105 transition-all"
               >
                 <svg
@@ -434,6 +463,7 @@ function App() {
                         href="https://metamask.io/download/"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={handleInstallMetaMask}
                         className="inline-flex items-center gap-2 rounded-lg bg-[var(--secondary-color)] px-5 py-2.5 text-sm sm:text-base font-semibold text-[var(--neutral-dark)] shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
                       >
                         <svg
@@ -626,6 +656,7 @@ function App() {
                       href="https://metamask.io/download/"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={handleInstallMetaMask}
                       className="group relative inline-flex items-center justify-center gap-3 rounded-xl bg-[var(--secondary-color)] px-8 py-4 text-base sm:text-lg font-semibold text-[var(--neutral-dark)] shadow-lg shadow-[var(--shadow-glow)] hover:shadow-xl hover:shadow-[var(--shadow-glow)] hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] focus:ring-offset-2"
                     >
                       <svg
