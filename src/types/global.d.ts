@@ -24,7 +24,7 @@ declare global {
     _list: string[];
     _percent: number[];
     _status: boolean;
-    _total: number;
+    _total: bigint;
   }
   interface Transaction {
     _from: string;

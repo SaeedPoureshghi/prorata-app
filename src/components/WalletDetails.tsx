@@ -94,6 +94,8 @@ const WalletDetails = (props: {
       </div>
     );
   }
+  const totalReceived = formatEther(detail?._total ?? 0n);
+
   return (
     <div className="flex flex-col gap-4 sm:gap-6 h-full">
       {/* Header */}
@@ -146,6 +148,21 @@ const WalletDetails = (props: {
             </svg>
           </button>
         )}
+      </div>
+
+      {/* Summary Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="rounded-xl border border-[var(--neutral-lighter)] bg-[var(--neutral-light)] p-4 flex flex-col gap-1.5">
+          <span className="text-xs font-medium uppercase tracking-wide text-[var(--text-secondary)]">
+            Total received
+          </span>
+          <span className="text-2xl font-semibold text-[var(--text-primary)]">
+            {totalReceived} BNB
+          </span>
+          <span className="text-xs text-[var(--text-muted)]">
+            Sum of all incoming transfers
+          </span>
+        </div>
       </div>
 
       {/* Owners Section */}
@@ -240,7 +257,9 @@ const WalletDetails = (props: {
             Transactions
           </div>
           <label className="flex items-center gap-1.5 sm:gap-2 cursor-pointer flex-shrink-0">
-            <span className="text-xs text-[var(--text-secondary)] font-medium">Show OUT</span>
+            <span className="text-xs text-[var(--text-secondary)] font-medium">
+              Show OUT
+            </span>
             <div className="relative">
               <input
                 type="checkbox"
@@ -250,7 +269,9 @@ const WalletDetails = (props: {
               />
               <div
                 className={`w-11 h-6 rounded-full transition-colors duration-200 ${
-                  showOutTransactions ? "bg-[var(--primary-color)]" : "bg-[var(--neutral-lighter)]"
+                  showOutTransactions
+                    ? "bg-[var(--primary-color)]"
+                    : "bg-[var(--neutral-lighter)]"
                 }`}
               >
                 <div
@@ -321,7 +342,9 @@ const WalletDetails = (props: {
                         <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1">
                           <div
                             className={`w-2 h-2 rounded-full ${
-                              tx._side === "in" ? "bg-[var(--secondary-color)]" : "bg-red-500"
+                              tx._side === "in"
+                                ? "bg-[var(--secondary-color)]"
+                                : "bg-red-500"
                             }`}
                           />
                           <span className="text-xs font-medium text-[var(--text-secondary)]">
